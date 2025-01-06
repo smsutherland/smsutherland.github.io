@@ -1,0 +1,7 @@
+name = "smsutherland"
+description = "Sagan Sutherland's website"
+homepage = "https://smsutherland.github.io"
+
+[author]
+name = "Sagan Sutherland"
+homepage = "https://smsutherland.github.io"

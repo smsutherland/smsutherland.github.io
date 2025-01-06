@@ -1,0 +1,23 @@
+.top-nav {
+    width: 100%;
+}
+
+.name {
+    float: left;
+}
+
+.navigation {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, 0);
+}
+
+.navigation > div {
+  margin-right: 1em;
+}
+
+.content {
+  padding-top: 1em;
+}
