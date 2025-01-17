@@ -2,6 +2,7 @@
   float: left;
   padding-left: 10%;
   width: 10%;
+  padding-top: 2em;
 }
 
 .sidebar > * {
@@ -17,10 +18,12 @@
 }
 
 .navigation > div {
-  margin: 1em;
+  margin-top: 1em;
 }
 
 .content {
+  float: center;
   padding-left: 25%;
   width: 50%;
+  padding-top: 2em;
 }
