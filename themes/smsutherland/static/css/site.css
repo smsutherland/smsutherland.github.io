@@ -1,12 +1,30 @@
+:root {
+    --base: #303446;
+    --mantle: #292c3c;
+    --text: #c6d0f5;
+    --blue: #8caaee;
+}
+
 .sidebar {
   float: left;
-  padding-left: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
   width: 10%;
   padding-top: 2em;
+  background-color: var(--mantle);
+  top: 0px;
+  bottom: 0px;
+  position: absolute;
 }
 
 .sidebar > * {
   text-align: center;
+  color: var(--text);
+}
+
+a {
+    text-decoration: none;
+    color: var(--blue);
 }
 
 .headshot {
@@ -26,4 +44,9 @@
   padding-left: 25%;
   width: 50%;
   padding-top: 2em;
+  color: var(--text);
+}
+
+body {
+  background-color: var(--base);
 }
