@@ -42,7 +42,7 @@ a {
 .content {
   float: center;
   padding-left: 25%;
-  width: 50%;
+  width: min(max(50%, 40em), 70%);
   padding-top: 2em;
   color: var(--text);
 }
