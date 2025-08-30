@@ -1,7 +1,10 @@
-window.addEventListener("load", () => {
+// Shamelessly stolen from
+// https://github.com/Schotsl/Uwuifier
+
+function uwuifyPage() {
   const uwuifier = new Uwuifier({
     spaces: {
-      faces: 0.05,
+      faces: 0.01,
       actions: 0,
       stutters: 0.1,
     },
@@ -25,10 +28,7 @@ window.addEventListener("load", () => {
     }
     paragraphs[i].innerHTML = result;
   }
-});
-
-// Shamelessly stolen from
-// https://github.com/Schotsl/Uwuifier
+}
 
 const DEFAULTS = {
   WORDS: 0.9,
