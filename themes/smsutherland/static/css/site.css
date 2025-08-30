@@ -79,24 +79,10 @@ footer > div#footer {
 .accent-bar {
   width: 100%;
   height: 8px;
-  background-size: 400% 100%;
-  background-position: left;
-  background-image: linear-gradient(
+  background-size: 200% 100%;
+  background-position: 0px 0px;
+  background-image: repeating-linear-gradient(
     90deg,
-    var(--rosewater),
-    var(--flamingo),
-    var(--pink),
-    var(--mauve),
-    var(--red),
-    var(--maroon),
-    var(--peach),
-    var(--yellow),
-    var(--green),
-    var(--teal),
-    var(--sky),
-    var(--sapphire),
-    var(--blue),
-    var(--lavender),
     var(--rosewater),
     var(--flamingo),
     var(--pink),
@@ -117,7 +103,7 @@ footer > div#footer {
 }
 
 @keyframes gradient {
-    100% {
-      background-position: right;
-    }
+  100% {
+    background-position: 200%;
   }
+}
