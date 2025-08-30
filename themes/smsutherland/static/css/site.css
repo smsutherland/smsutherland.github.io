@@ -1,5 +1,9 @@
 @import "./palette.css";
 
+* {
+  font-family: sans-serif;
+}
+
 html {
   height: 100%;
 }
