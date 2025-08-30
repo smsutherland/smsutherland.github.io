@@ -1,0 +1,124 @@
+@import "./palette.css";
+
+* {
+  font-family: sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: var(--base);
+  color: var(--text);
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+div#main {
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+}
+
+.sidebar {
+  float: left;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  background-color: var(--mantle);
+  left: 0px;
+}
+
+div#insidebar {
+  height: min-content;
+  position: sticky;
+  top: 0px;
+  text-align: center;
+  padding-top: 1cm;
+}
+
+a {
+  text-decoration: none;
+  color: var(--blue);
+}
+
+a#insidebar-top {
+  color: var(--text);
+}
+
+.headshot {
+  max-width: 100%;
+}
+
+.name {
+  font-size: large;
+}
+
+.navigation > div {
+  margin-top: 0.5cm;
+}
+
+.content {
+  padding-left: 6%;
+  padding-right: 6%;
+  width: max(65%, 40em);
+  padding-top: 1cm;
+}
+
+footer {
+  width: 100%;
+  background-color: var(--crust);
+  z-index: 1;
+}
+
+footer > div#footer {
+  width: min(max(50%, 40em), 70%);
+  padding-left: 25%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  padding-top: 1cm;
+  padding-bottom: 1cm;
+}
+
+#credit {
+    width: 15em;
+}
+
+div#insidebar > hr {
+  color: var(--overlay0);
+}
+
+.accent-bar {
+  width: 100%;
+  height: 8px;
+  background-size: 200% 100%;
+  background-position: 0px 0px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--rosewater),
+    var(--flamingo),
+    var(--pink),
+    var(--mauve),
+    var(--red),
+    var(--maroon),
+    var(--peach),
+    var(--yellow),
+    var(--green),
+    var(--teal),
+    var(--sky),
+    var(--sapphire),
+    var(--blue),
+    var(--lavender),
+    var(--rosewater)
+  );
+  animation: gradient 20s linear infinite forwards;
+}
+
+@keyframes gradient {
+  100% {
+    background-position: 200%;
+  }
+}
