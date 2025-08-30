@@ -1,5 +1,24 @@
 @import "./palette.css";
 
+html {
+  height: 100%;
+}
+
+body {
+  background-color: var(--base);
+  color: var(--text);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+div#main {
+  min-height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
 .sidebar {
   float: left;
   padding-left: 5%;
@@ -37,17 +56,10 @@ a {
   padding-top: 2em;
 }
 
-body {
-  background-color: var(--base);
-  color: var(--text);
-}
-
 footer {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
   width: 100%;
   background-color: var(--crust);
+  z-index: 1;
 }
 
 footer > div#footer {
