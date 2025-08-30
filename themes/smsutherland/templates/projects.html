@@ -1,18 +1,17 @@
-
 {% extends "base.html" %}
 
 {% block content %}
     {{ section.content | safe }}
 
     {% for page in section.pages | reverse %}
-    <h2>
-        <a href="{{ page.permalink }}">{{ page.title }}</a>
-        {% if page.extra.current %} * {% endif %}
-    </h2>
-    {% if page.summary %}
-        {{ page.summary | safe }}
-    {% else %}
-        {{ page.content | safe }}
-    {% endif %}
+        <h2>
+            <a href="{{ page.permalink }}">{{ page.title }}</a>
+            {% if page.extra.current %} * {% endif %}
+        </h2>
+        {% if page.summary %}
+            {{ page.summary | safe }}
+        {% else %}
+            {{ page.content | safe }}
+        {% endif %}
     {% endfor %}
 {% endblock %}
