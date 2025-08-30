@@ -75,3 +75,9 @@ section.footer > footer {
   background-position: left;
   animation: gradient 20s linear infinite forwards;
 }
+
+@keyframes gradient {
+    100% {
+      background-position: right;
+    }
+  }
