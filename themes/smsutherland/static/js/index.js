@@ -7,9 +7,11 @@ window.addEventListener("load", () => {
     document.head.append(script);
   }
 
-  const internals = document.getElementsByClassName("internal-link");
-  for (let i = 0; i < internals.length; i++) {
-    internals[i].href += "?" + url.searchParams;
+  if (url.searchParams.size > 0) {
+    const internals = document.getElementsByClassName("internal-link");
+    for (let i = 0; i < internals.length; i++) {
+      internals[i].href += "?" + url.searchParams;
+    }
   }
 });
 
