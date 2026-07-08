@@ -6,7 +6,9 @@
     {% for page in section.pages | reverse %}
         <h2>
             <a href="{{ page.permalink }}">{{ page.title }}</a>
-            {% if page.extra.current %} * {% endif %}
         </h2>
+        <p>
+            {{ page.extra.location }} {{ page.date }}
+        </p>
     {% endfor %}
 {% endblock %}

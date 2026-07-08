@@ -1,8 +1,9 @@
 +++
 title = "New Frontiers in Cosmology 2026"
-weight = 2026
+date = 2026-08-10
 [extra]
 time = 8
+location = "Universidade da Coruña"
 +++
 
 {% slide(time=30) %}
