@@ -1,0 +1,11 @@
+<section
+    {% if time %} data-timing="{{ time }}" {% endif %}
+    {% if hidden %} data-visibility="hidden" {% endif %}
+    {% if animate %} data-auto-animate {% endif %}
+    >
+    {% if html %}
+        {{ body | safe }}
+    {% else %}
+        {{ body | markdown | safe }}
+    {% endif %}
+</section>
