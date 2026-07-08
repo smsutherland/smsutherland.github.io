@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="{{ get_url(path="/css/site.css") }}">
     <meta name="generator" content="Zola v. 0.19.2">
     <script src="{{ get_url(path="js/index.js") }}"></script>
 </head>
@@ -13,16 +13,17 @@
     <aside class="sidebar">
         <div id="insidebar">
             <a id="insidebar-top" href="/">
-                <img src="/assets/headshot.png" alt="A headshot of me with a forrested landscape behind me.", class="headshot">
+                <img src="{{ get_url(path="/assets/headshot.png") }}" alt="A headshot of me with a forrested landscape behind me." class="headshot">
                 <div class="name">
                     Sagan Sutherland
                 </div>
             </a>
             <hr>
             <div id="nav" class="navigation">
-                <div><a href="/">home</a></div>
-                <div><a href="/cv/">cv</a></div>
-                <div><a href="/projects/">projects</a></div>
+                <div><a href="{{ get_url(path="/") }}">home</a></div>
+                <div><a href="{{ get_url(path="/cv/") }}">cv</a></div>
+                <div><a href="{{ get_url(path="/projects/") }}">projects</a></div>
+                <div><a href="{{ get_url(path="/talks/") }}">talks</a></div>
             </div>
         </div>
     </aside>
