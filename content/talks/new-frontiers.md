@@ -68,3 +68,7 @@ at the University of Connecticut
 ## Conclusion!
 - Even with the same underlying physics, and similar resulting statistics, the maps are distinct enough that we lose machine learning robustness.
 {% end %}
+
+{% slide() %}
+{{ figure(src="SIMBA_Mtot_0.png") }}
+{% end %}
