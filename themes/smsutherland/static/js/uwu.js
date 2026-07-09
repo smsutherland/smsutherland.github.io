@@ -32,7 +32,11 @@ function uwuifyPage() {
 
 const DEFAULTS = {
   WORDS: 0.9,
-  SPACES: { faces: 0.04, actions: 0.02, stutters: 0.1 },
+  SPACES: {
+    faces: 0.04,
+    actions: 0.02,
+    stutters: 0.1
+  },
   EXCLAMATIONS: 1,
 };
 
@@ -89,17 +93,15 @@ class Uwuifier {
    * @param {SpacesModifier} [config.spaces=DEFAULTS.SPACES] - The modifier for space transformations.
    * @param {number} [config.exclamations=DEFAULTS.EXCLAMATIONS] - The modifier for exclamation transformations.
    */
-  constructor(
-    {
-      words = DEFAULTS.WORDS,
-      spaces = DEFAULTS.SPACES,
-      exclamations = DEFAULTS.EXCLAMATIONS,
-    } = {
-      words: DEFAULTS.WORDS,
-      spaces: DEFAULTS.SPACES,
-      exclamations: DEFAULTS.EXCLAMATIONS,
-    },
-  ) {
+  constructor({
+    words = DEFAULTS.WORDS,
+    spaces = DEFAULTS.SPACES,
+    exclamations = DEFAULTS.EXCLAMATIONS,
+  } = {
+    words: DEFAULTS.WORDS,
+    spaces: DEFAULTS.SPACES,
+    exclamations: DEFAULTS.EXCLAMATIONS,
+  }, ) {
     this.wordsModifier = words;
     this.spacesModifier = spaces;
     this.exclamationsModifier = exclamations;

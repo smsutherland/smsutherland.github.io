@@ -14,7 +14,7 @@ window.addEventListener("load", () => {
           anchor.searchParams.set(key, value);
         }
       }
-        anchors[i].href = anchor.toString();
+      anchors[i].href = anchor.toString();
     }
   }
 
@@ -34,4 +34,3 @@ window.addEventListener("load", () => {
     footer.insertBefore(unuwu, credit);
   }
 });
-

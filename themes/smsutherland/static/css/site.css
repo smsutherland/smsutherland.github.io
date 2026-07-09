@@ -56,7 +56,7 @@ a#insidebar-top {
   font-size: large;
 }
 
-.navigation > div {
+.navigation>div {
   margin-top: 0.5cm;
 }
 
@@ -73,7 +73,7 @@ footer {
   z-index: 1;
 }
 
-footer > div#footer {
+footer>div#footer {
   width: min(max(50%, 40em), 70%);
   padding-left: 25%;
   justify-content: space-between;
@@ -84,10 +84,10 @@ footer > div#footer {
 }
 
 #credit {
-    width: 15em;
+  width: 15em;
 }
 
-div#insidebar > hr {
+div#insidebar>hr {
   color: var(--overlay0);
 }
 
@@ -96,24 +96,22 @@ div#insidebar > hr {
   height: 8px;
   background-size: 200% 100%;
   background-position: 0px 0px;
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--rosewater),
-    var(--flamingo),
-    var(--pink),
-    var(--mauve),
-    var(--red),
-    var(--maroon),
-    var(--peach),
-    var(--yellow),
-    var(--green),
-    var(--teal),
-    var(--sky),
-    var(--sapphire),
-    var(--blue),
-    var(--lavender),
-    var(--rosewater)
-  );
+  background-image: repeating-linear-gradient(90deg,
+      var(--rosewater),
+      var(--flamingo),
+      var(--pink),
+      var(--mauve),
+      var(--red),
+      var(--maroon),
+      var(--peach),
+      var(--yellow),
+      var(--green),
+      var(--teal),
+      var(--sky),
+      var(--sapphire),
+      var(--blue),
+      var(--lavender),
+      var(--rosewater));
   animation: gradient 20s linear infinite forwards;
 }
 
