@@ -1,15 +1,51 @@
-on: push
-name: Build and deploy GH Pages
+name: Build and deploy Zola website
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
     steps:
       - name: checkout
-        uses: actions/checkout@v4
-      - name: build_and_deploy
-        uses: shalzz/zola-deploy-action@v0.21.0
-        env:
-          PAGES_BRANCH: gh-pages
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BUILD_FLAGS: --minify
+        uses: actions/checkout@v6.0.1
+
+      - name: Build Zola
+        uses: ./.github/actions/build-zola
+        with:
+          zola_version: v0.21.0
+          check_links: true
+          check_flags: --skip-external-links
+          build_flags: --minify
+
+      - name: Minifying JS and CSS
+        run: |
+          sudo apt-get install minify
+          sudo minify -r . -o .
+        working-directory: ./public
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./public
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
