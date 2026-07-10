@@ -6,6 +6,6 @@
     {% if html %}
         {{ body | safe }}
     {% else %}
-        {{ body | markdown | safe }}
+        {{ body | markdown(inline=true) | safe }}
     {% endif %}
 </section>
