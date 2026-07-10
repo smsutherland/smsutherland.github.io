@@ -1,0 +1,58 @@
+{% macro normalize_name(name) %}
+{%- set name = name |
+trim |
+replace(from="{", to="") |
+replace(from="}", to="") |
+replace(from="\'e", to="é") |
+replace(from="\'a", to="á")
+-%}
+{%- set name_parts = name | split(pat=",") -%}
+{{- name_parts | first -}}
+{%- for p in name_parts | last | split(pat=" ") -%}
+{%- if loop.index != 1 %}
+{{ p | trim | split(pat="") | nth(n=1) -}}.
+{%- endif -%}
+{%- endfor -%}
+{% endmacro %}
+
+{% macro make_bib_entry(entry) %}
+{%- set author_limit = 6 -%}
+
+{%- set authors = entry.tags.author | split(pat="and") -%}
+{%- if authors | length <= author_limit -%}{#>#}
+
+{%- for author in authors -%}
+{{- self::normalize_name(name=author) -}}
+{%- if loop.index != authors | length -%}
+,
+{% endif -%}
+{%- endfor -%}
+
+{%- else -%}
+{{- self::normalize_name(name=authors | first) -}}, et al.
+{%- endif -%}
+, {{ entry.tags.year }}
+{% endmacro %}
+
+{% macro make_bib(bib, bib_path) %}
+{% for entry in bib.bibliographies | sort(attribute="tags.author") %}
+{% if (loop.index - 1) % 4 == 0 %}
+{% if loop.index != 1 %}
+<div style="text-align: center;">↓</div>
+</section>
+{% endif %}
+<section>
+    {% if loop.index != 1 %}
+    <div style="text-align: center;">↑</div>
+    {% endif %}
+    <h2>
+        <a href="{{ get_url(path=bib_path) }}">
+            References
+        </a>
+    </h2>
+    {% endif %}
+    {{ loop.index }}. {{ self::make_bib_entry(entry=entry) }}
+    <br>
+    {% endfor %}
+</section>
+{% endmacro %}

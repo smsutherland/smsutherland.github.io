@@ -1,3 +1,4 @@
+{% import "macros.html" as macros %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +16,23 @@
     <div class="reveal">
         <div class="slides">
             {{ page.content | safe }}
+
+            {% if page.extra.bib %}
+            {% set bib_path = page.extra.bib %}
+            {% else %}
+            {% set bib_path = page.relative_path | replace(from=".md", to=".bib") %}
+            {% endif %}
+
+            {% set bib = load_data(path=bib_path, format="bibtex", required=false) %}
+
+            {% if bib %}
+            <section data-timing="0" style="text-align: left;">
+                {{ macros::make_bib(bib=bib, bib_path=bib_path) }}
+            </section>
+            {% elif page.extra.bib %}
+            {{ throw(message = "Could not make bibliography: " ~ page.extra.bib ~ " does not exist!") }}
+            {% endif %}
+
         </div>
     </div>
 
