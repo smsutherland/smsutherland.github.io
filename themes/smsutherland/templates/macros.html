@@ -32,6 +32,16 @@ replace(from="\'a", to="á")
 {{- self::normalize_name(name=authors | first) -}}, et al.
 {%- endif -%}
 , {{ entry.tags.year }}
+{%- if "eprint" in entry.tags -%}
+,
+{%- if "adsurl" in entry.tags -%}
+<a href="{{ entry.tags.adsurl }}">
+    {{ entry.tags.eprint -}}
+</a>
+{%- else %}
+{{ entry.tags.eprint -}}
+{%- endif -%}
+{%- endif -%}
 {% endmacro %}
 
 {% macro make_bib(bib, bib_path) %}
