@@ -1,0 +1,10 @@
+{% if not note %}
+{% if n %}
+{% set note = n %}
+{% else %}
+{% set note = body %}
+{% endif %}
+{% endif %}
+<aside class="notes">
+    {{ note | safe }} <br>
+</aside>
