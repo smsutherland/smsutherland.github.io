@@ -4,11 +4,9 @@
     {% if animate %} data-auto-animate {% endif %}
     {% if width %} style="width: {{ width }}; margin-left: calc((100% - ({{  width }}))/2);" {% endif %}
     >
-    {% if columns %}<div style="display: grid; grid-auto-flow: column;">{% endif %}
     {% if html %}
         {{ body | safe }}
     {% else %}
         {{ body | markdown(inline=true) | safe }}
     {% endif %}
-    {% if columns %}</div>{% endif %}
 </section>

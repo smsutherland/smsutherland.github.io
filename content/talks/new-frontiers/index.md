@@ -7,7 +7,8 @@ time = 8
 location = "Universidade da Coruña"
 +++
 
-{% slide(time=30) %}
+{% slide(time=30, width="75%") %}
+
 ## SWIMBA: A reimplementation of SIMBA feedback in SWIFT
 ### Sagan Sutherland
 & Daniel Anglés-Alcázar
@@ -41,14 +42,21 @@ at the University of Connecticut
 {% end %}
 
 {% slide() %}
-### swimba
+
+## SWIMBA
+
+{% columns(ncol=2) %}
+<div class="vcenter">
+
 - Takes the AGN and stellar feedback prescriptions from SIMBA (Davé+19) and brings them into a new subgrid model.
 - Made using SWIFT (Schaller+24) rather than SIMBA's GIZMO
-{% end %}
+</div>
 
-{% slide() %}
-
+<div class="vcenter hcenter">
 {{ video(src="simba_swimba_compare.mp4", attrs="data-autoplay loop") }}
+</div>
+
+{% end %}
 
 {% end %}
 

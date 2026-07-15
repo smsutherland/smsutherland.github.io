@@ -1,0 +1,10 @@
+{% if not widths %}
+{% set widths = "" %}
+{% for a in range(end=ncol) %}
+{% set_global widths = widths ~ "1fr " %}
+{% endfor %}
+{% endif %}
+
+<div class="columns" style="display: grid; grid-auto-flow: column; grid-template-columns: {{ widths }};">
+    {{ body | safe }}
+</div>
