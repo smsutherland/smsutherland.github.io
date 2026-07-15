@@ -26,7 +26,6 @@ jobs:
           zola_version: v0.21.0
           check_links: true
           check_flags: --skip-external-links
-          build_flags: --minify
 
       - name: Minifying JS and CSS
         run: |
