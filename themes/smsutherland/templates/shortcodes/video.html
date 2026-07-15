@@ -1,2 +1,2 @@
-<video data-src="{{ get_url(path=page.colocated_path ~ "/figs/" ~ src) }}" {% if attrs %} {{ attrs }} {% endif %}>
+<video data-src="{{ get_url(path=page.colocated_path ~ "/figs/" ~ src) }}" {% if attrs %} {{ attrs | safe }} {% endif %}>
 </video>
