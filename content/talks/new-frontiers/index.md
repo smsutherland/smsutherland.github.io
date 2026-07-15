@@ -53,7 +53,7 @@ at the University of Connecticut
 </div>
 
 <div class="vcenter hcenter">
-{{ video(src="simba_swimba_compare.mp4", attrs="data-autoplay loop") }}
+{{ video(src="simba_swimba_compare.mp4", attrs=`data-autoplay loop style="max-height: 85vh"`) }}
 </div>
 
 {% end %}
