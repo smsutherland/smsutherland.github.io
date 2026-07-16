@@ -1,13 +1,7 @@
-{% if width and not height %}
-{{ throw(message="Cannot provide width but not height") }}
-{% endif %}
-{% if height and not width %}
-{{ throw(message="Cannot provide height but not width") }}
-{% endif %}
+{% set path = page.colocated_path ~ "/figs/" ~ src %}
+{% set metadata = get_image_metadata(path=path) %}
 
-{% if height and width %}
-{% set img = resize_image(path=page.colocated_path ~ "/figs/" ~ src, width=width, height=height, op=op | default(value="fill")) %}
-<img data-src="{{ img.url | safe }}">
-{% else %}
-<img data-src="{{ get_url(path=page.colocated_path ~ "/figs/" ~ src) | safe }}">
-{% endif %}
+<img data-src="{{ get_url(path=path) | safe }}"
+    width={{ metadata.width }}
+    height={{ metadata.height }}
+    style="width: {{ width | default(value="auto") }}; height: {{ height | default(value="auto") }};">
