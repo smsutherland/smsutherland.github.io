@@ -1,6 +1,6 @@
+{% if not hidden %}
 <section
     {% if time %} data-timing="{{ time }}" {% endif %}
-    {% if hidden %} data-visibility="hidden" {% endif %}
     {% if animate %} data-auto-animate {% endif %}
     {% if width %} style="width: {{ width }}; margin-left: calc((100% - ({{  width }}))/2);" {% endif %}
     >
@@ -10,3 +10,4 @@
         {{ body | markdown(inline=true) | safe }}
     {% endif %}
 </section>
+{% endif %}
