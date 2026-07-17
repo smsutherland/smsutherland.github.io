@@ -1,7 +1,49 @@
 {% set path = page.colocated_path ~ "/figs/" ~ src %}
 {% set metadata = get_image_metadata(path=path) %}
+{% set aspect_ratio = metadata.width / metadata.height %}
 
-<img data-src="{{ get_url(path=path) | safe }}"
-    width={{ metadata.width }}
-    height={{ metadata.height }}
-    style="width: {{ width | default(value="auto") }}; height: {{ height | default(value="auto") }};">
+{% if zoom %}
+{% set nolimit = true %}
+{% endif %}
+
+{% set width = width | default(value="auto") %}
+{% set height = height | default(value="auto") %}
+
+{% if zoom %}
+
+{% if width == "auto" %}
+{% set new_width = "calc((" ~ height ~ ") * " ~ aspect_ratio ~ " * " ~ zoom ~ ")" %}
+{% else %}
+{% set new_width = "calc((" ~ width ~ ") * " ~ zoom ~ ")" %}
+{% endif %}
+
+{% if height == "auto" %}
+{% set new_height = "calc((" ~ width ~ ") / " ~ aspect_ratio ~ " * " ~ zoom ~ ")" %}
+{% else %}
+{% set new_height = "calc((" ~  height ~ ") * " ~ zoom ~ ")" %}
+{% endif %}
+
+{% set width = new_width %}
+{% set height = new_height %}
+
+{% if on %}
+{% set onx = on.0 %}
+{% set ony = on.1 %}
+{% if onx > 1 %}
+{% set onx = onx / 100 %}
+{% endif %}
+{% if ony > 1 %}
+{% set ony = ony / 100 %}
+{% endif %}
+{% endif %}
+
+{% endif %}
+
+{% set style = "width: " ~ width ~ "; height: " ~ height ~ ";" %}
+{% if zoom and on %}
+{% set style = style ~ "position: relative;" %}
+{% set style = style ~ "left: calc((" ~ width ~ ") * ( 0.5 - " ~ onx ~ "));" %}
+{% set style = style ~ "bottom: calc((" ~ height ~ ") * ( 0.5 - " ~ ony ~ "));" %}
+{% endif %}
+
+<img id="figure{{ nth }}" data-src="{{ get_url(path=path) | safe }}" width={{ metadata.width }} height={{ metadata.height }} style="{{ style }}" {% if nolimit %} class="nolimit" {% endif %}>
