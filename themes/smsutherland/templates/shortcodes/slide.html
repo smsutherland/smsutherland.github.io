@@ -1,7 +1,11 @@
+{% if bonus and not time %}
+{% set time = 0 %}
+{% endif %}
 {% if not hidden %}
 <section
     {% if time %} data-timing="{{ time }}" {% endif %}
     {% if animate %} data-auto-animate {% endif %}
+    {% if bonus %} data-visibility="uncounted" {% endif %}
     {% if width %} style="width: {{ width }}; margin-left: calc((100% - ({{  width }}))/2);" {% endif %}
     >
     {% if html %}

@@ -27,7 +27,7 @@
             {% set bib = load_data(path=bib_path, format="bibtex", required=false) %}
 
             {% if bib %}
-            <section data-timing="0" style="text-align: left;">
+            <section data-timing="0" style="text-align: left;" data-visibility="uncounted">
                 {{ macros::make_bib(bib=bib, bib_path=bib_path) }}
             </section>
             {% elif page.extra.bib %}

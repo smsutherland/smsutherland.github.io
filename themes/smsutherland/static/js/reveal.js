@@ -937,6 +937,9 @@
           let n = i(e);
           typeof n == `string` && n.length && (o[n] = o[n] || [], o[n].push(e))
         }), [].slice.call(n.querySelectorAll(r)).forEach((t, n) => {
+          if (t.hasAttribute(`data-no-animate`)) {
+            return;
+          }
           let r = i(t);
           s[r] = s[r] || [], s[r].push(t);
           let c;

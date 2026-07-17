@@ -44,27 +44,90 @@ at the University of Connecticut
 {% slide() %}
 
 ## SWIMBA
-
 {% columns(ncol=2) %}
 <div class="vcenter">
 
 - Takes the AGN and stellar feedback prescriptions from SIMBA (Davé+19) and brings them into a new subgrid model.
-- Made using SWIFT (Schaller+24) rather than SIMBA's GIZMO
+- Made using SWIFT (Schaller+24) rather than SIMBA's GIZMO (Hopkins+14)
+- Takes other processes like chemistry and star formation from Swift-EAGLE
+
+**Tuned to match z=0 summary statistics!**
 </div>
 
-<div class="vcenter hcenter">
+<div class="vcenter">
 {{ video(src="simba_swimba_compare.mp4", attrs=`data-autoplay loop style="max-height: 85vh"`) }}
 </div>
 
 {% end %}
+{% end %}
+
+{% slide(animate=true) %}
+{% columns(ncol=2) %}
+<div class="vcenter">
+<p>
+A comparison of <span style="color: #d20f39;">SWIMBA</span> and <span style="color: #2094b5;">SIMBA</span> in many key quantities, showing the range of their cosmic variance.
+</p>
+
+- 27 runs
+- 27 initial conditions
+- Same physics
+
+</div>
+
+{{ figure(src="CV.svg", height="90vh") }}
+{% end %}
+
+{% note() %}
+Each has a set of 27 separate runs, each with different initial conditions.
+Colored ranges show the full extent of the 27 runs, and lines show the medians.
+{% end %}
+
+{% end %}
+
+
+{% slide(animate=true, time=30) %}
+
+<div class="elementhcenter" data-id="header">
+<h2 class="withbase" style="padding: 0.1em">power spectra</h2>
+</div>
+{{ figure(src="CV.svg", height="90vh", zoom=2.3, on=[0.54, 0.5], style="z-index: -1;") }}
+<div class="withbase" style="position: fixed; right: 0vw; top: 65vh;" data-id="legend_background">
+{{ figure(src="CV_legend.svg", height="20vh", attrs="data-no-animate") }}
+</div>
+
+{% end %}
+
+{% slide(animate=true, time=30) %}
+
+<div class="elementhcenter" data-id="header">
+<h2 class="withbase" style="padding: 0.1em">baryon fraction</h2>
+</div>
+{{ figure(src="CV.svg", height="90vh", zoom=3, on=[0.35, -0.001], style="z-index: -1;") }}
+<div class="withbase" style="position: fixed; left: 0vw; top: 25vh;" data-id="legend_background">
+{{ figure(src="CV_legend.svg", height="20vh", attrs="data-no-animate") }}
+</div>
+
+{% end %}
+
+{% slide(animate=true, time=30) %}
+
+<div class="elementhcenter" data-id="header">
+<h2 class="withbase" style="padding: 0.1em">stellar mass &mdash; black hole mass</h2>
+</div>
+{{ figure(src="CV.svg", height="90vh", zoom=3, on=[0.35, -0.25], style="z-index: -1;") }}
+<div class="withbase" style="position: fixed; left: 0vw; top: 25vh;" data-id="legend_background">
+{{ figure(src="CV_legend.svg", height="20vh", attrs="data-no-animate") }}
+</div>
 
 {% end %}
 
 {% slide() %}
-## SWIMBA
-- movie of the two side by side
-- Then show a few of the summary statistics in which they match
-- Great, now we've established we have two simulations which appear similar
+## Why did we make SWIMBA?
+- machine learning robustness
+- ability to make predictions on unseen physical models
+- swimba is a similar model
+- can we get ML results out of swimba
+- are they at least better than results from tng
 {% end %}
 
 {% slide() %}
@@ -87,10 +150,29 @@ at the University of Connecticut
 {% end %}
 
 {% slide() %}
+2x2 panels
+top: map we're looking at
+bottom: results that come from the map
+{% end %}
+
+{% slide() %}
 ## Conclusion!
 - Even with the same underlying physics, and similar resulting statistics, the maps are distinct enough that we lose machine learning robustness.
 {% end %}
 
-{% slide() %}
-{{ figure(src="SIMBA_Mtot_0.png", width=800, height=800) }}
+{% slide(bonus=true) %}
+<div class="elementhcenter" data-id="header">
+<h2 class="withbase" style="padding: 0.1em">max circular velocity</h2>
+</div>
+{{ figure(src="CV.svg", height="90vh", zoom=3, on=[0.65, -0.25], style="z-index: -1;") }}
+<div class="withbase" style="position: fixed; left: 10vw; top: 25vh;" data-id="legend_background">
+{{ figure(src="CV_legend.svg", height="20vh", attrs="data-no-animate") }}
+</div>
+{% end %}
+
+{% slide(bonus=true) %}
+
+## max circular velocity
+Adaptive softenings in gizmo change the density profile of galaxies.
+{{ figure(src="adaptive_fixed.svg") }}
 {% end %}

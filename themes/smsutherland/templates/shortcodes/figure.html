@@ -39,11 +39,12 @@
 
 {% endif %}
 
-{% set style = "width: " ~ width ~ "; height: " ~ height ~ ";" %}
+{% set style = style | default(value="") %}
+{% set style = style ~ "width: " ~ width ~ "; height: " ~ height ~ ";" %}
 {% if zoom and on %}
 {% set style = style ~ "position: relative;" %}
 {% set style = style ~ "left: calc((" ~ width ~ ") * ( 0.5 - " ~ onx ~ "));" %}
 {% set style = style ~ "bottom: calc((" ~ height ~ ") * ( 0.5 - " ~ ony ~ "));" %}
 {% endif %}
 
-<img id="figure{{ nth }}" data-src="{{ get_url(path=path) | safe }}" width={{ metadata.width }} height={{ metadata.height }} style="{{ style }}" {% if nolimit %} class="nolimit" {% endif %}>
+<img id="figure{{ nth }}" data-src="{{ get_url(path=path) | safe }}" width={{ metadata.width }} height={{ metadata.height }} style="{{ style }}" {% if nolimit %} class="nolimit" {% endif %} {{ attrs | default(value="") | safe }}>

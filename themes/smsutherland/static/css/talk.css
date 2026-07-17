@@ -14,3 +14,25 @@
   justify-content: center;
   text-align: center;
 }
+
+.elementhcenter {
+  display: flex;
+  justify-content: center;
+}
+
+.nolimit {
+  max-width: none !important;
+  max-height: none !important;
+}
+
+.ljustify {
+  text-align: left;
+}
+
+.rjustify {
+  text-align: right;
+}
+
+.withbase {
+  background-color: var(--base);
+}
