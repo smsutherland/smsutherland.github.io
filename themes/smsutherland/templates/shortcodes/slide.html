@@ -5,6 +5,7 @@
 <section
     {% if time %} data-timing="{{ time }}" {% endif %}
     {% if animate %} data-auto-animate {% endif %}
+    {% if animate and animate == "restart" %} data-auto-animate-restart {% endif %}
     {% if bonus %} data-visibility="uncounted" {% endif %}
     {% if width %} style="width: {{ width }}; margin-left: calc((100% - ({{  width }}))/2);" {% endif %}
     >
