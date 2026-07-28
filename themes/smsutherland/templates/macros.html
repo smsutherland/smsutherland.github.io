@@ -45,8 +45,9 @@ replace(from="\'a", to="á")
 {% endmacro %}
 
 {% macro make_bib(bib, bib_path) %}
+{% set entries_per_page = 8 %}
 {% for entry in bib.bibliographies | sort(attribute="tags.author") %}
-{% if (loop.index - 1) % 4 == 0 %}
+{% if (loop.index - 1) % entries_per_page == 0 %}
 {% if loop.index != 1 %}
 <div style="text-align: center;">↓</div>
 </section>
