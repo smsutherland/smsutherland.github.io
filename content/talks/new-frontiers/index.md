@@ -1,7 +1,6 @@
 +++
 title = "New Frontiers in Cosmology 2026"
 date = 2026-08-10
-draft = true
 [extra]
 time = 8
 location = "Universidade da Coruña"
@@ -150,18 +149,54 @@ Colored ranges show the full extent of the 27 runs, and lines show the medians.
 A SIMBA dataset exists, and I have recently added an analogous SWIMBA dataset!
 </div>
 <div class="hcenter">
-{{ figure(src="camels.jpg", height="90vh", style="margin-bottom: 0;") }}
+{{ figure(src="camels.jpg", width="35vw", style="margin-bottom: 0;") }}
 <p style="margin-top: 0;"><small>(Villaescusa-Navarro+21)</small></p>
 </div>
 {% end %}
 {% end %}
 
-{% slide(time=30) %}
-{{ figure(src="SwimbaSIMBA_Mtot_0.svg", height="80vh") }}
+{% slide() %}
+{% columns(ncol=2) %}
+{{ figure(src="random_map.png", width="50vw") }}
+<div class="vcenter">
+<div>
+Villaescusa-Navarro+21 showed cosmological parameters can be predicted using only the projected image:
+
+|           | Ω<sub>m</sub> | σ<sub>8</sub> |
+|----------:|---------------|---------------|
+| Predicted | 0.1498        | 0.9594        |
+|    Actual | 0.1414        | 0.9786        |
+
+Now can we take this model, trained on images of SIMBA, and make predictions about SWIMBA?
+</div>
+</div>
+{% end %}
+
+{% note() %}
+This map is a matter projection, but there are a variety of fields we could look at.
+
+We're looking at a projection through a 5Mpc/h wedge through the simulation volume.
+{% end %}
 {% end %}
 
 {% slide(time=30) %}
+{% columns(ncol=2) %}
+<div class="vcenter">
+
+When our image is of the total matter density,<br>**we almost can!**
+</div>
+{{ figure(src="SwimbaSIMBA_Mtot_0.svg", height="80vh") }}
+{% end %}
+{% end %}
+
+{% slide(time=30) %}
+{% columns(ncol=2) %}
+<div class="vcenter">
+
+Unfortunately, a more observable map like temperature is less robust.
+</div>
 {{ figure(src="SwimbaSIMBA_T_0.svg", height="80vh") }}
+{% end %}
 {% end %}
 
 {% slide() %}
