@@ -8,6 +8,16 @@
     {% if animate and animate == "restart" %} data-auto-animate-restart {% endif %}
     {% if bonus %} data-visibility="uncounted" {% endif %}
     {% if width %} style="width: {{ width }}; margin-left: calc((100% - ({{  width }}))/2);" {% endif %}
+    {% if background_img %}
+        {% set path = page.colocated_path ~ "/figs/" ~ background_img %}
+        data-background-image="{{ get_url(path=path) }}"
+    {% endif %}
+    {% if background_mov %}
+        {% set path = page.colocated_path ~ "/figs/" ~ background_mov %}
+        data-background-video="{{ get_url(path=path) }}"
+        data-background-video-loop
+        data-background-video-muted
+    {% endif %}
     >
     {% if html %}
         {{ body | safe }}

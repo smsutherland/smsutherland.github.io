@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ get_url(path="/css/talk.css") }}" />
     <script src="{{ get_url(path="/js/reveal.js") }}"></script>
     <script src="{{ get_url(path="/js/reveal-notes.js") }}"></script>
+    <script src="{{ get_url(path="/js/math.js") }}"></script>
 </head>
 
 <body>
@@ -46,7 +47,8 @@
             controls: "speaker",
             transition: "none",
             progress: false,
-            plugins: [RevealNotes],
+            plugins: [RevealNotes, RevealMath.MathJax4],
+            backgroundTransition: "none",
             {% if page.extra.time %}
             totalTime: {{ page.extra.time }} * 60,
             {% endif %}

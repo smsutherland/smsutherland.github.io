@@ -6,37 +6,17 @@ time = 8
 location = "Universidade da Coruña"
 +++
 
-{% slide(time=30, width="75%") %}
+{% slide(time=30, width="75%", background_mov="background_movie.mp4") %}
+<div style="background-color: var(--crust);">
+
 ## SWIMBA: A reimplementation of SIMBA feedback in SWIFT
 ### Sagan Sutherland
-& Daniel Anglés-Alcázar
+with Daniel Anglés-Alcázar and the CAMELS collaboration
+</div>
 
-at the University of Connecticut
+{% note() %}
+Say I'm a grad student at uconn
 {% end %}
-
-{% slide(hidden=true) %}
-1. Introduce Camels as a collaboration focused on using simulations to explore machine learning and cosmology
-2. Introduce SWIMBA and explain the rationale for its existence
-3. Show the match between SWIMBA and SIMBA on the summary statistic level
-4. Show how using machine learning doesn't produce good results on the field level
-{% end %}
-
-{% slide(animate=true, hidden=true) %}
-<h2>
-    <span class="fragment highlight-red" data-fragment-index="1">C</span><span class="fragment fade-out" data-fragment-index="2">osmology and</span>
-</h2>
-<h2>
-    <span class="fragment highlight-red" data-fragment-index="1">A</span><span class="fragment fade-out" data-fragment-index="2">strophysics with</span>
-</h2>
-<h2>
-    <span class="fragment highlight-red" data-fragment-index="1">M</span><span class="fragment fade-out" data-fragment-index="2">achin</span><span class="fragment highlight-red" data-fragment-index="1">E</span>
-</h2>
-<h2>
-    <span class="fragment highlight-red" data-fragment-index="1">L</span><span class="fragment fade-out" data-fragment-index="2">earning</span>
-</h2>
-<h2>
-    <span class="fragment highlight-red" data-fragment-index="1">S</span><span class="fragment fade-out" data-fragment-index="2">imulations</span>
-</h2>
 {% end %}
 
 {% slide() %}
@@ -44,8 +24,14 @@ at the University of Connecticut
 {% columns(ncol=2) %}
 <div class="vcenter">
 
-- Takes the AGN and stellar feedback prescriptions from SIMBA (Davé+19) and brings them into a new subgrid model.
-- Made using SWIFT (Schaller+24) rather than SIMBA's GIZMO (Hopkins+14).
+{% note() %}
+What is simba?
+Say what it is before we talk about the details of it.
+Make the intro as general as possible with respect to simulations!
+{% end %}
+
+- Takes the AGN and stellar feedback prescriptions from the SIMBA galaxy formation model (Davé+19) and brings them into a new subgrid model.
+- Implemented in the SWIFT simulation code (Schaller+24) as compared to SIMBA implemented in GIZMO (Hopkins+14).
 - Takes other processes like chemistry and star formation from Swift-EAGLE.
 
 **Tuned to match z=0 summary statistics!**
@@ -69,6 +55,7 @@ A comparison of <span style="color: #d20f39;">SWIMBA</span> and <span style="col
 - 27 initial conditions
 - Same physics
 
+<!-- Show 1P to show how codes respond diffeerently to cosmology -->
 </div>
 
 {{ figure(src="CV.svg", height="90vh") }}
@@ -116,23 +103,38 @@ Colored ranges show the full extent of the 27 runs, and lines show the medians.
 </div>
 {% end %}
 
-{% slide() %}
+{% slide(animate="restart", time=2) %}
 ## Why did we make SWIMBA?
+{% end %}
+
+{% slide(animate=true) %}
+## Why did we make SWIMBA?
+<div data-auto-animate-delay="1">
+
+**We want to be able to use machine learning to infer cosmology!**
+</div>
+
 {% columns(ncol=2) %}
-<div>
+<div class="fragment">
 
 ### Robustness
-- Robust methods are able to make accurate predictions about unseen physical models?
+- Robust ML models are able to make accurate predictions about unseen physical models
 - For example, machine learning techniques tend to have poor robustness when trained on only one model.
+- Poor robustness of a model decreases our trust in its results.
 </div>
-<div>
+<div class="fragment">
 
 ### Model Similarity
-- SWIMBA is implements much of the same physics as SIMBA.
-- And it produces similar results to SIMBA.
-- It stands to reason that a model trained in SIMBA could make good predictions about SWIMBA, right?
+- SWIMBA implements much of the same physics as SIMBA. And it produces similar results to SIMBA.
+- It stands to reason that a model trained in SIMBA could make good predictions about SWIMBA.
 </div>
 {% end %}
+<div class="fragment">
+
+### Speed
+- SWIMBA can run much faster than SIMBA.
+- This allows us to make larger datasets cheaper!
+</div>
 {% end %}
 
 {% slide() %}
@@ -155,17 +157,37 @@ A SIMBA dataset exists, and I have recently added an analogous SWIMBA dataset!
 {% end %}
 {% end %}
 
+{% slide(background_img="background.jpg", width="75%") %}
+<div class="withbase" style="padding-top: 0.5pt; padding-bottom: 0.5pt;">
+
+Our new SWIMBA suite contains 2164 individual simulations, for a total simulated volume of $\\left(323\\,\\mathrm{Mpc/h}\\right)^3$!
+
+We will soon be expanding SWIMBA from $\\left(25\\,\\mathrm{Mpc/h}\\right)^3$ to $\\left(50\\,\\mathrm{Mpc/h}\\right)^3$ simulations.
+
+As a part of this project, I have developed [camels-post](https://github.com/smsutherland/camels-post), a post-processing pipeline using 7 different tools to generate data products from simulation our snapshots.
+
+{{ note(n="Come and find me if you want to use the data :)") }}
+{{ note(n="from galaxy catalogs to cosmic web filaments to... images like this") }}
+</div>
+{% end %}
+
 {% slide() %}
 {% columns(ncol=2) %}
 {{ figure(src="random_map.png", width="50vw") }}
 <div class="vcenter">
 <div>
-Villaescusa-Navarro+21 showed cosmological parameters can be predicted using only the projected image:
+Villaescusa-Navarro+21 showed cosmological parameters can be predicted using only the projected maps like this one:
+{{ note(n="note that these are early tests") }}
+{% columns(ncol=2, widths="1.5em 1fr") %}
+<div class="vcenter" style="font-size: 2.5em;">
+➔
+</div>
 
-|           | Ω<sub>m</sub> | σ<sub>8</sub> |
+|           | *Ω<sub>m</sub>* | *σ<sub>8</sub>* |
 |----------:|---------------|---------------|
 | Predicted | 0.1498        | 0.9594        |
 |    Actual | 0.1414        | 0.9786        |
+{% end %}
 
 Now can we take this model, trained on images of SIMBA, and make predictions about SWIMBA?
 </div>
@@ -183,7 +205,8 @@ We're looking at a projection through a 5Mpc/h wedge through the simulation volu
 {% columns(ncol=2) %}
 <div class="vcenter">
 
-When our image is of the total matter density,<br>**we almost can!**
+When our image is of the total matter density,<br>**we can!**
+
 </div>
 {{ figure(src="SwimbaSIMBA_Mtot_0.svg", height="80vh") }}
 {% end %}
@@ -193,7 +216,7 @@ When our image is of the total matter density,<br>**we almost can!**
 {% columns(ncol=2) %}
 <div class="vcenter">
 
-Unfortunately, a more observable map like temperature is less robust.
+Unfortunately, quantities more dependent on the baryonic physics, such as temperature, can't achieve the same robustness.
 </div>
 {{ figure(src="SwimbaSIMBA_T_0.svg", height="80vh") }}
 {% end %}
@@ -201,7 +224,10 @@ Unfortunately, a more observable map like temperature is less robust.
 
 {% slide() %}
 ## Conclusion!
-- Even with the same underlying physics, and similar resulting statistics, the maps are distinct enough that we lose machine learning robustness.
+- SWIMBA and SIMBA produce similar summary statistics!
+- Even so, based on our initial robustness tests, the maps are distinct enough that we lose machine learning robustness.
+- SWIMBA data is available to be used! Please reach out if you could make use of such a dataset.
+  - [sagan.sutherland@uconn.edu](mailto:sagan.sutherland@uconn.edu)
 {% end %}
 
 {% slide(bonus=true) %}
