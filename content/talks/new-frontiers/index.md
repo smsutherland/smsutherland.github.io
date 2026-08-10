@@ -32,9 +32,9 @@ Make the intro as general as possible with respect to simulations!
 
 - Takes the AGN and stellar feedback prescriptions from the SIMBA galaxy formation model (Davé+19) and brings them into a new subgrid model.
 - Implemented in the SWIFT simulation code (Schaller+24) as compared to SIMBA implemented in GIZMO (Hopkins+14).
-- Takes other processes like chemistry and star formation from Swift-EAGLE.
+- Takes other processes like chemistry and star formation from Swift-EAGLE (Schaller+24).
 
-**Tuned to match z=0 summary statistics!**
+**Tuned to match SIMBA's z=0 summary statistics!**
 </div>
 
 <div class="vcenter">
@@ -148,7 +148,7 @@ Colored ranges show the full extent of the 27 runs, and lines show the medians.
 - Varying cosmological parameters so that we can try to predict those.
 - Also vary astrophysical parameters to try and smooth over the uncertainty in baryonic physics.
 
-A SIMBA dataset exists, and I have recently added an analogous SWIMBA dataset!
+We already have a SIMBA dataset, and I have recently added an analogous SWIMBA dataset!
 </div>
 <div class="hcenter">
 {{ figure(src="camels.jpg", width="35vw", style="margin-bottom: 0;") }}
@@ -205,6 +205,8 @@ We're looking at a projection through a 5Mpc/h wedge through the simulation volu
 {% columns(ncol=2) %}
 <div class="vcenter">
 
+Our preliminary results show...
+
 When our image is of the total matter density,<br>**we can!**
 
 </div>
@@ -216,18 +218,23 @@ When our image is of the total matter density,<br>**we can!**
 {% columns(ncol=2) %}
 <div class="vcenter">
 
-Unfortunately, quantities more dependent on the baryonic physics, such as temperature, can't achieve the same robustness.
+Unfortunately, quantities more dependent on the baryonic physics, such as temperature,<br>**can't achieve the same robustness**.
 </div>
 {{ figure(src="SwimbaSIMBA_T_0.svg", height="80vh") }}
 {% end %}
 {% end %}
 
-{% slide() %}
+{% slide(width="75%", background_mov="background_movie.mp4") %}
+<div style="background-color: var(--crust);">
+
 ## Conclusion!
 - SWIMBA and SIMBA produce similar summary statistics!
 - Even so, based on our initial robustness tests, the maps are distinct enough that we lose machine learning robustness.
 - SWIMBA data is available to be used! Please reach out if you could make use of such a dataset.
   - [sagan.sutherland@uconn.edu](mailto:sagan.sutherland@uconn.edu)
+- We provide open-source tools for generating our data products [here](https://github.com/smsutherland/camels-post)
+- Slides available at [https://smsutherland.github.io/talks/new-frontiers](https://smsutherland.github.io/talks/new-frontiers)
+</div>
 {% end %}
 
 {% slide(bonus=true) %}
