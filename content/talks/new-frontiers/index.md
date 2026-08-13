@@ -75,7 +75,7 @@ Colored ranges show the full extent of the 27 runs, and lines show the medians.
 <h2 class="withbase" style="padding: 0.1em">power spectra</h2>
 </div>
 {{ figure(src="CV.svg", height="90vh", zoom=2.3, on=[0.54, 0.5], style="z-index: -1;") }}
-<div class="withbase" style="position: fixed; right: 0vw; top: 65vh;" data-id="legend_background">
+<div class="withbase" style="position: absolute; right: 0vw; top: 65vh;" data-id="legend_background">
 {{ figure(src="CV_legend.svg", height="20vh", attrs="data-no-animate") }}
 </div>
 
@@ -86,8 +86,8 @@ Colored ranges show the full extent of the 27 runs, and lines show the medians.
 <div class="elementhcenter" data-id="header">
 <h2 class="withbase" style="padding: 0.1em">baryon fraction</h2>
 </div>
-{{ figure(src="CV.svg", height="90vh", zoom=3, on=[0.35, -0.001], style="z-index: -1;") }}
-<div class="withbase" style="position: fixed; left: 0vw; top: 25vh;" data-id="legend_background">
+{{ figure(src="CV.svg", height="90vh", zoom=3, on=[0.35, 0.97], style="z-index: -1;") }}
+<div class="withbase" style="position: absolute; left: 0vw; top: 25vh;" data-id="legend_background">
 {{ figure(src="CV_legend.svg", height="20vh", attrs="data-no-animate") }}
 </div>
 
@@ -97,8 +97,8 @@ Colored ranges show the full extent of the 27 runs, and lines show the medians.
 <div class="elementhcenter" data-id="header">
 <h2 class="withbase" style="padding: 0.1em">stellar mass &mdash; black hole mass</h2>
 </div>
-{{ figure(src="CV.svg", height="90vh", zoom=3, on=[0.35, -0.25], style="z-index: -1;") }}
-<div class="withbase" style="position: fixed; left: 0vw; top: 25vh;" data-id="legend_background">
+{{ figure(src="CV.svg", height="90vh", zoom=3, on=[0.35, 1.22], style="z-index: -1;") }}
+<div class="withbase" style="position: absolute; left: 0vw; top: 25vh;" data-id="legend_background">
 {{ figure(src="CV_legend.svg", height="20vh", attrs="data-no-animate") }}
 </div>
 {% end %}
@@ -241,8 +241,8 @@ Unfortunately, quantities more dependent on the baryonic physics, such as temper
 <div class="elementhcenter" data-id="header">
 <h2 class="withbase" style="padding: 0.1em">max circular velocity</h2>
 </div>
-{{ figure(src="CV.svg", height="90vh", zoom=3, on=[0.65, -0.25], style="z-index: -1;") }}
-<div class="withbase" style="position: fixed; left: 10vw; top: 25vh;" data-id="legend_background">
+{{ figure(src="CV.svg", height="90vh", zoom=3, on=[0.65, 1.22], style="z-index: -1;") }}
+<div class="withbase" style="position: absolute; left: 10vw; top: 25vh;" data-id="legend_background">
 {{ figure(src="CV_legend.svg", height="20vh", attrs="data-no-animate") }}
 </div>
 {% end %}
