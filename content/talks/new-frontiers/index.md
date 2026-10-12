@@ -6,7 +6,7 @@ time = 8
 location = "Universidade da Coruña"
 +++
 
-{% slide(time=30, width="75%", background_mov="background_movie.mp4") %}
+{% <slide time={30} width="75%" background_mov="background_movie.mp4"> %}
 <div style="background-color: var(--crust);">
 
 ## SWIMBA: A reimplementation of SIMBA feedback in SWIFT
@@ -14,21 +14,21 @@ location = "Universidade da Coruña"
 with Daniel Anglés-Alcázar and the CAMELS collaboration
 </div>
 
-{% note() %}
+{% <note> %}
 Say I'm a grad student at uconn
-{% end %}
-{% end %}
+{% </note> %}
+{% </slide> %}
 
-{% slide() %}
+{% <slide> %}
 ## SWIMBA
-{% columns(ncol=2) %}
+{% <columns ncol={2}> %}
 <div class="vcenter">
 
-{% note() %}
+{% <note> %}
 What is simba?
 Say what it is before we talk about the details of it.
 Make the intro as general as possible with respect to simulations!
-{% end %}
+{% </note> %}
 
 - Takes the AGN and stellar feedback prescriptions from the SIMBA galaxy formation model (Davé+19) and brings them into a new subgrid model.
 - Implemented in the SWIFT simulation code (Schaller+24) as compared to SIMBA implemented in GIZMO (Hopkins+14).
@@ -38,14 +38,14 @@ Make the intro as general as possible with respect to simulations!
 </div>
 
 <div class="vcenter">
-{{ video(src="simba_swimba_compare.mp4", attrs=`data-autoplay loop style="max-height: 85vh"`) }}
+{{ <video src="simba_swimba_compare.mp4" attrs=`data-autoplay loop style="max-height: 85vh"`/> }}
 </div>
 
-{% end %}
-{% end %}
+{% </columns> %}
+{% </slide> %}
 
-{% slide(animate=true) %}
-{% columns(ncol=2) %}
+{% <slide animate={true}> %}
+{% <columns ncol={2}> %}
 <div class="vcenter">
 <p>
 A comparison of <span style="color: #d20f39;">SWIMBA</span> and <span style="color: #2094b5;">SIMBA</span> in many key quantities, showing the range of their cosmic variance.
@@ -55,66 +55,66 @@ A comparison of <span style="color: #d20f39;">SWIMBA</span> and <span style="col
 - 27 initial conditions
 - Same physics
 
-<!-- Show 1P to show how codes respond diffeerently to cosmology -->
+<!-- Show 1P to show how codes respond differently to cosmology -->
 </div>
 
-{{ figure(src="CV.svg", height="90vh") }}
-{% end %}
+{{ <figure src="CV.svg" height="90vh"/> }}
+{% </columns> %}
 
-{% note() %}
+{% <note> %}
 Each has a set of 27 separate runs, each with different initial conditions.
 Colored ranges show the full extent of the 27 runs, and lines show the medians.
-{% end %}
+{% </note> %}
 
-{% end %}
+{% </slide> %}
 
 
-{% slide(animate=true, time=30) %}
+{% <slide animate={true} time={30}> %}
 
 <div class="elementhcenter" data-id="header">
 <h2 class="withbase" style="padding: 0.1em">power spectra</h2>
 </div>
-{{ figure(src="CV.svg", height="90vh", zoom=2.3, on=[0.54, 0.5], style="z-index: -1;") }}
+{{ <figure src="CV.svg" height="90vh" zoom={2.3} on={[0.54, 0.5]} style="z-index: -1;"/> }}
 <div class="withbase" style="position: absolute; right: 0vw; top: 65vh;" data-id="legend_background">
-{{ figure(src="CV_legend.svg", height="20vh", attrs="data-no-animate") }}
+{{ <figure src="CV_legend.svg" height="20vh" attrs="data-no-animate"/> }}
 </div>
 
-{% end %}
+{% </slide> %}
 
-{% slide(animate=true, time=30) %}
+{% <slide animate={true} time={30}> %}
 
 <div class="elementhcenter" data-id="header">
 <h2 class="withbase" style="padding: 0.1em">baryon fraction</h2>
 </div>
-{{ figure(src="CV.svg", height="90vh", zoom=3, on=[0.35, 0.97], style="z-index: -1;") }}
+{{ <figure src="CV.svg" height="90vh" zoom={3} on={[0.35, 0.97]} style="z-index: -1;"/> }}
 <div class="withbase" style="position: absolute; left: 0vw; top: 25vh;" data-id="legend_background">
-{{ figure(src="CV_legend.svg", height="20vh", attrs="data-no-animate") }}
+{{ <figure src="CV_legend.svg" height="20vh" attrs="data-no-animate"/> }}
 </div>
 
-{% end %}
+{% </slide> %}
 
-{% slide(animate=true, time=30) %}
+{% <slide animate={true} time={30}> %}
 <div class="elementhcenter" data-id="header">
 <h2 class="withbase" style="padding: 0.1em">stellar mass &mdash; black hole mass</h2>
 </div>
-{{ figure(src="CV.svg", height="90vh", zoom=3, on=[0.35, 1.22], style="z-index: -1;") }}
+{{ <figure src="CV.svg" height="90vh" zoom={3} on={[0.35, 1.22]} style="z-index: -1;"/> }}
 <div class="withbase" style="position: absolute; left: 0vw; top: 25vh;" data-id="legend_background">
-{{ figure(src="CV_legend.svg", height="20vh", attrs="data-no-animate") }}
+{{ <figure src="CV_legend.svg" height="20vh" attrs="data-no-animate"/> }}
 </div>
-{% end %}
+{% </slide> %}
 
-{% slide(animate="restart", time=2) %}
+{% <slide animate="restart" time={2}> %}
 ## Why did we make SWIMBA?
-{% end %}
+{% </slide> %}
 
-{% slide(animate=true) %}
+{% <slide animate={true}> %}
 ## Why did we make SWIMBA?
 <div data-auto-animate-delay="1">
 
 **We want to be able to use machine learning to infer cosmology!**
 </div>
 
-{% columns(ncol=2) %}
+{% <columns ncol={2}> %}
 <div class="fragment">
 
 ### Robustness
@@ -128,17 +128,17 @@ Colored ranges show the full extent of the 27 runs, and lines show the medians.
 - SWIMBA implements much of the same physics as SIMBA. And it produces similar results to SIMBA.
 - It stands to reason that a model trained in SIMBA could make good predictions about SWIMBA.
 </div>
-{% end %}
+{% </columns> %}
 <div class="fragment">
 
 ### Speed
 - SWIMBA can run much faster than SIMBA.
 - This allows us to make larger datasets cheaper!
 </div>
-{% end %}
+{% </slide> %}
 
-{% slide() %}
-{% columns(ncol=2) %}
+{% <slide> %}
+{% <columns ncol={2}> %}
 <div class="vcenter">
 
 ## CAMELS
@@ -151,13 +151,13 @@ Colored ranges show the full extent of the 27 runs, and lines show the medians.
 We already have a SIMBA dataset, and I have recently added an analogous SWIMBA dataset!
 </div>
 <div class="hcenter">
-{{ figure(src="camels.jpg", width="35vw", style="margin-bottom: 0;") }}
+{{ <figure src="camels.jpg" width="35vw" style="margin-bottom: 0;"/> }}
 <p style="margin-top: 0;"><small>(Villaescusa-Navarro+21)</small></p>
 </div>
-{% end %}
-{% end %}
+{% </columns> %}
+{% </slide> %}
 
-{% slide(background_img="background.jpg", width="75%") %}
+{% <slide background_img="background.jpg" width="75%"> %}
 <div class="withbase" style="padding-top: 0.5pt; padding-bottom: 0.5pt;">
 
 Our new SWIMBA suite contains 2164 individual simulations, for a total simulated volume of $\\left(323\\,\\mathrm{Mpc/h}\\right)^3$!
@@ -166,19 +166,19 @@ We will soon be expanding SWIMBA from $\\left(25\\,\\mathrm{Mpc/h}\\right)^3$ to
 
 As a part of this project, I have developed [camels-post](https://github.com/smsutherland/camels-post), a post-processing pipeline using 7 different tools to generate data products from simulation our snapshots.
 
-{{ note(n="Come and find me if you want to use the data :)") }}
-{{ note(n="from galaxy catalogs to cosmic web filaments to... images like this") }}
+{{ <note n="Come and find me if you want to use the data :)"/> }}
+{{ <note n="from galaxy catalogs to cosmic web filaments to... images like this"/> }}
 </div>
-{% end %}
+{% </slide> %}
 
-{% slide() %}
-{% columns(ncol=2) %}
-{{ figure(src="random_map.png", width="50vw") }}
+{% <slide> %}
+{% <columns ncol={2}> %}
+{{ <figure src="random_map.png" width="50vw"/> }}
 <div class="vcenter">
 <div>
 Villaescusa-Navarro+21 showed cosmological parameters can be predicted using only the projected maps like this one:
-{{ note(n="note that these are early tests") }}
-{% columns(ncol=2, widths="1.5em 1fr") %}
+{{ <note n="note that these are early tests"/> }}
+{% <columns ncol={2} widths="1.5em 1fr"> %}
 <div class="vcenter" style="font-size: 2.5em;">
 ➔
 </div>
@@ -187,22 +187,22 @@ Villaescusa-Navarro+21 showed cosmological parameters can be predicted using onl
 |----------:|---------------|---------------|
 | Predicted | 0.1498        | 0.9594        |
 |    Actual | 0.1414        | 0.9786        |
-{% end %}
+{% </columns> %}
 
 Now can we take this model, trained on images of SIMBA, and make predictions about SWIMBA?
 </div>
 </div>
-{% end %}
+{% </columns> %}
 
-{% note() %}
+{% <note> %}
 This map is a matter projection, but there are a variety of fields we could look at.
 
 We're looking at a projection through a 5Mpc/h wedge through the simulation volume.
-{% end %}
-{% end %}
+{% </note> %}
+{% </slide> %}
 
-{% slide(time=30) %}
-{% columns(ncol=2) %}
+{% <slide time={30}> %}
+{% <columns ncol={2}> %}
 <div class="vcenter">
 
 Our preliminary results show...
@@ -210,21 +210,21 @@ Our preliminary results show...
 When our image is of the total matter density,<br>**we can!**
 
 </div>
-{{ figure(src="SwimbaSIMBA_Mtot_0.svg", height="80vh") }}
-{% end %}
-{% end %}
+{{ <figure src="SwimbaSIMBA_Mtot_0.svg" height="80vh"/> }}
+{% </columns> %}
+{% </slide> %}
 
-{% slide(time=30) %}
-{% columns(ncol=2) %}
+{% <slide time={30}> %}
+{% <columns ncol={2}> %}
 <div class="vcenter">
 
 Unfortunately, quantities more dependent on the baryonic physics, such as temperature,<br>**can't achieve the same robustness**.
 </div>
-{{ figure(src="SwimbaSIMBA_T_0.svg", height="80vh") }}
-{% end %}
-{% end %}
+{{ <figure src="SwimbaSIMBA_T_0.svg" height="80vh"/> }}
+{% </columns> %}
+{% </slide> %}
 
-{% slide(width="75%", background_mov="background_movie.mp4") %}
+{% <slide width="75%" background_mov="background_movie.mp4"> %}
 <div style="background-color: var(--crust);">
 
 ## Conclusion!
@@ -235,30 +235,30 @@ Unfortunately, quantities more dependent on the baryonic physics, such as temper
 - We provide open-source tools for generating our data products [here](https://github.com/smsutherland/camels-post)
 - Slides available at [https://smsutherland.github.io/talks/new-frontiers](https://smsutherland.github.io/talks/new-frontiers)
 </div>
-{% end %}
+{% </slide> %}
 
-{% slide(bonus=true) %}
+{% <slide bonus={true}> %}
 <div class="elementhcenter" data-id="header">
 <h2 class="withbase" style="padding: 0.1em">max circular velocity</h2>
 </div>
-{{ figure(src="CV.svg", height="90vh", zoom=3, on=[0.65, 1.22], style="z-index: -1;") }}
+{{ <figure src="CV.svg" height="90vh" zoom={3} on={[0.65, 1.22]} style="z-index: -1;"/> }}
 <div class="withbase" style="position: absolute; left: 10vw; top: 25vh;" data-id="legend_background">
-{{ figure(src="CV_legend.svg", height="20vh", attrs="data-no-animate") }}
+{{ <figure src="CV_legend.svg" height="20vh" attrs="data-no-animate"/> }}
 </div>
-{% end %}
+{% </slide> %}
 
-{% slide(bonus=true) %}
+{% <slide bonus={true}> %}
 ## max circular velocity
 Adaptive softenings in gizmo change the density profile of galaxies.
-{{ figure(src="adaptive_fixed.svg") }}
-{% end %}
+{{ <figure src="adaptive_fixed.svg"/> }}
+{% </slide> %}
 
-{% slide(bonus=true) %}
-{{ figure(src="SwimbaSIMBA_Mtot_1.svg", height="80vh") }}
-{{ figure(src="SwimbaSIMBA_T_1.svg", height="80vh") }}
-{% end %}
+{% <slide bonus={true}> %}
+{{ <figure src="SwimbaSIMBA_Mtot_1.svg" height="80vh"/> }}
+{{ <figure src="SwimbaSIMBA_T_1.svg" height="80vh"/> }}
+{% </slide> %}
 
-{% slide(bonus=true) %}
-{{ figure(src="SwimbaSIMBA_Mtot_2345.svg", height="90vh") }}
-{{ figure(src="SwimbaSIMBA_T_2345.svg", height="90vh") }}
-{% end %}
+{% <slide bonus={true}> %}
+{{ <figure src="SwimbaSIMBA_Mtot_2345.svg" height="90vh"/> }}
+{{ <figure src="SwimbaSIMBA_T_2345.svg" height="90vh"/> }}
+{% </slide> %}

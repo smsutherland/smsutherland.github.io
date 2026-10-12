@@ -23,7 +23,7 @@ jobs:
       - name: Build Zola
         uses: ./.github/actions/build-zola
         with:
-          zola_version: v0.21.0
+          zola_version: v0.23.6
           check_links: true
           check_flags: --skip-external-links
 

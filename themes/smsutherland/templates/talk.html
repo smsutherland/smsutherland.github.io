@@ -1,4 +1,3 @@
-{% import "macros.html" as macros %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +28,7 @@
 
             {% if bib %}
             <section data-timing="0" style="text-align: left;" data-visibility="uncounted">
-                {{ macros::make_bib(bib=bib, bib_path=bib_path) }}
+                {{ <bib bib={ bib } bib_path={ bib_path }/> }}
             </section>
             {% elif page.extra.bib %}
             {{ throw(message = "Could not make bibliography: " ~ page.extra.bib ~ " does not exist!") }}
@@ -57,3 +56,4 @@
 </body>
 
 </html>
+
