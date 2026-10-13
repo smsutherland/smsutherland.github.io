@@ -11,7 +11,7 @@
 </div>
 {% endcomponent %}
 
-{%component figure(@page, src: string, height="auto", width="auto", style: string = none, on: array = none, zoom: number = none, attrs: string = none) %}
+{%component figure(@page, src: string, height="auto", width="auto", style: string = none, on: array = none, zoom: number = none, nolimit: bool = false, attrs: string = none) %}
 {% set path = page.colocated_path ~ "/figs/" ~ src %}
 {% set metadata = get_image_metadata(path=path) %}
 {% set aspect_ratio = metadata.width / metadata.height %}
