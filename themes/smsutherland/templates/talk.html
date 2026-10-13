@@ -49,7 +49,7 @@
             plugins: [RevealNotes, RevealMath.MathJax4],
             backgroundTransition: "none",
             {%- if page.extra.time -%}
-            totalTime: {{ page.extra.time }} * 60,
+            totalTime: {{ page.extra.time * 60 }},
             {%- endif -%}
         });
     </script>
