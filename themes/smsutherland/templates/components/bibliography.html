@@ -1,69 +1,59 @@
 {% component normalizedname(name) %}
 {%- set name = name |
-trim |
 replace(from="{", to="") |
 replace(from="}", to="") |
 replace(from="\\'e", to="é") |
-replace(from="\\'a", to="á")
+replace(from="\\'a", to="á") |
+trim
 -%}
 {%- set name_parts = name | split(pat=",") -%}
 {{- name_parts | first -}}
 {%- for p in name_parts | last | split(pat=" ") -%}
-{%- if loop.index != 1 %}
-{{ p | trim | split(pat="") | nth(n=1) -}}.
+{%- if loop.index != 1 %} {{ p | trim | split(pat="") | nth(n=1) -}}.
 {%- endif -%}
 {%- endfor -%}
 {% endcomponent %}
 
-{% component bib_entry(entry) %}
+{% component bibentry(entry) %}
 {%- set author_limit = 6 -%}
 
 {%- set authors = entry.tags.author | split(pat="and") -%}
-{%- if authors | length <= author_limit -%}{#>#}
+{%- if authors | length <= author_limit -%}
 
 {%- for author in authors -%}
-{{ <normalizedname name={ author }/> }}
-{%- if loop.index != authors | length -%}
-,
-{% endif -%}
+{{- <normalizedname name={ author }/> -}}
+{%- if loop.index != authors | length -%}, {% endif -%}
 {%- endfor -%}
-
 {%- else -%}
-{{ <normalizedname name={ authors | first } /> }}, et al.
+{{- <normalizedname name={ authors | first } /> }}, et al.
 {%- endif -%}
-, {{ entry.tags.year }}
-{%- if "eprint" in entry.tags -%}
-,
-{%- if "adsurl" in entry.tags -%}
+, {{ entry.tags.year -}}
+{%- if "eprint" in entry.tags -%}, {% if "adsurl" in entry.tags -%}
 <a href="{{ entry.tags.adsurl }}">
-    {{ entry.tags.eprint -}}
+    {{- entry.tags.eprint -}}
 </a>
-{%- else %}
-{{ entry.tags.eprint -}}
+{%- else -%}
+{{- entry.tags.eprint -}}
 {%- endif -%}
 {%- endif -%}
 {% endcomponent %}
 
 {% component bib(bib, bib_path) %}
-{% set entries_per_page = 8 %}
-{% for entry in bib.bibliographies | sort(attribute="tags.author") %}
-{% if (loop.index - 1) % entries_per_page == 0 %}
-{% if loop.index != 1 %}
+{%- set entries_per_page = 8 -%}
+{%- for entry in bib.bibliographies | sort(attribute="tags.author") -%}
+{%- if (loop.index - 1) % entries_per_page == 0 -%}
+{%- if loop.index != 1 -%}
 <div style="text-align: center;">↓</div>
 </section>
-{% endif %}
+{%- endif -%}
 <section>
-    {% if loop.index != 1 %}
+    {%- if loop.index != 1 -%}
     <div style="text-align: center;">↑</div>
-    {% endif %}
-    <h2>
-        <a href="{{ get_url(path=bib_path) }}">
-            References
-        </a>
-    </h2>
-    {% endif %}
-    {{ loop.index }}. {{ <bib_entry entry={ entry }/>}}
+    {%- endif -%}
+    <h2><a href="{{ get_url(path=bib_path) }}">References</a></h2>
+    {%- endif -%}
+    {{ loop.index }}. {{ <bibentry entry={ entry }/>-}}
     <br>
-    {% endfor %}
+    {%- endfor -%}
 </section>
 {% endcomponent %}
