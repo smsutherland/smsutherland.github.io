@@ -4,6 +4,10 @@ date = 2026-08-10
 [extra]
 time = 8
 location = "Universidade da Coruña"
+revealplugins = [
+    { name = "RevealNotes", url = "@/js/reveal-notes.js"},
+    { name = "RevealMath.MathJax4", url = "@/js/math.js"},
+]
 +++
 
 {% <slide time={30} width="75%" background_mov="background_movie.mp4"> %}

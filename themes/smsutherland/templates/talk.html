@@ -3,14 +3,21 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-    <link rel="stylesheet" href="{{ get_url(path="/css/reveal.css") }}" />
-    <link rel="stylesheet" href="{{ get_url(path="/css/catppuccin-reveal.css") }}" />
-    <link rel="stylesheet" href="{{ get_url(path="/css/talk.css") }}" />
+    <link rel="stylesheet" href="{{ get_url(path="/css/reveal.css") }}"/>
+    <link rel="stylesheet" href="{{ get_url(path="/css/catppuccin-reveal.css") }}"/>
+    <link rel="stylesheet" href="{{ get_url(path="/css/talk.css") }}"/>
     <script src="{{ get_url(path="/js/reveal.js") }}"></script>
-    <script src="{{ get_url(path="/js/reveal-notes.js") }}"></script>
-    <script src="{{ get_url(path="/js/math.js") }}"></script>
+    {%- if page.extra.revealplugins -%}
+        {%- for plugin in page.extra.revealplugins -%}
+            {%- if plugin.url[0] == '@' -%}
+                <script src="{{ get_url(path=plugin.url[1:]) }}"></script>
+            {%- else -%}
+                <script src="{{ plugin.url }}"></script>
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
 </head>
 
 <body>
@@ -37,19 +44,34 @@
         </div>
     </div>
 
+    {%- set options = {
+            "width": 1920,
+            "height": 1080,
+            "hash": true,
+            "slideNumber": true,
+            "controls": "speaker",
+            "transition": "none",
+            "progress": false,
+            "backgroundTransition": "none",
+    } -%}
+    {%- if page.extra.time -%}
+        {% set options = { ...options, "totalTime": page.extra.time * 60, } %}
+    {%- endif -%}
+    {%- if page.extra.revealoptions -%}
+        {% set options = {...options, ...page.extra.revealoptions} %}
+    {%- endif -%}
+
     <script>
         Reveal.initialize({
-            width: 1920,
-            height: 1080,
-            hash: true,
-            slideNumber: true,
-            controls: "speaker",
-            transition: "none",
-            progress: false,
-            plugins: [RevealNotes, RevealMath.MathJax4],
-            backgroundTransition: "none",
-            {%- if page.extra.time -%}
-            totalTime: {{ page.extra.time * 60 }},
+            {%- for key, value in options -%}
+            {{- key -}}: {{- value | json_encode | safe-}},
+            {%- endfor -%}
+            {%- if page.extra.revealplugins -%}
+            plugins: [
+                {%- for plugin in page.extra.revealplugins -%}
+                    {{- plugin.name -}},
+                {%- endfor -%}
+            ],
             {%- endif -%}
         });
     </script>
