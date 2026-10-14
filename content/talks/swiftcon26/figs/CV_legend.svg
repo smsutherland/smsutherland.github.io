@@ -1,1 +1,96 @@
-../../new-frontiers/figs/CV_legend.svg
+<?xml version="1.0"?>
+<svg width="65" height="30" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+ <metadata>2026-10-13T10:32:02.232150image/svg+xmlMatplotlib v3.11.1, https://matplotlib.org/</metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <defs>
+  <clipPath id="pf82dc57c5f">
+   <rect height="116.72" id="svg_1" width="121.44" x="51.81" y="11.94"/>
+  </clipPath>
+  <clipPath id="pa7afc3af1d">
+   <rect height="116.72" id="svg_2" width="121.44" x="221.82" y="11.94"/>
+  </clipPath>
+  <clipPath id="p8ebf521556">
+   <rect height="116.72" id="svg_3" width="121.44" x="391.83" y="11.94"/>
+  </clipPath>
+  <clipPath id="p625a7ebb45">
+   <rect height="116.72" id="svg_4" width="121.44" x="51.81" y="157.83"/>
+  </clipPath>
+  <clipPath id="p2a9e500665">
+   <rect height="116.72" id="svg_5" width="121.44" x="221.82" y="157.83"/>
+  </clipPath>
+  <clipPath id="p18e1f5d37e">
+   <rect height="116.72" id="svg_6" width="121.44" x="391.83" y="157.83"/>
+  </clipPath>
+  <clipPath id="p3c3fbd8c4f">
+   <rect height="116.72" id="svg_7" width="121.44" x="51.81" y="303.73"/>
+  </clipPath>
+  <clipPath id="p29ad83009f">
+   <rect height="116.72" id="svg_8" width="121.44" x="221.82" y="303.73"/>
+  </clipPath>
+  <clipPath id="p88d33571b0">
+   <rect height="116.72" id="svg_9" width="121.44" x="391.83" y="303.73"/>
+  </clipPath>
+  <clipPath id="pd821d9f8d6">
+   <rect height="116.72" id="svg_10" width="121.44" x="51.81" y="449.62"/>
+  </clipPath>
+  <clipPath id="pb8b8c16fea">
+   <rect height="116.72" id="svg_11" width="121.44" x="221.82" y="449.62"/>
+  </clipPath>
+  <clipPath id="p624103d426">
+   <rect height="116.72" id="svg_12" width="121.44" x="391.83" y="449.62"/>
+  </clipPath>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <g id="svg_1935" transform="translate(5.1, -0.2) translate(-4.3, 0.2) matrix(1, 0, 0, 1, -19.4505, -17.663)">
+   <g id="legend_1" transform="translate(-19.1083, -33.758) translate(-175.796, -114.65) matrix(1, 0, 0, 1, 156.534, 87.2175)">
+    <g id="patch_8">
+     <path d="m61.28,106.98l56.54,0q1.67,0 1.67,-1.66l0,-22.38q0,-1.67 -1.67,-1.67l-56.54,0q-1.67,0 -1.67,1.67l0,22.38q0,1.66 1.67,1.66z" fill="#ffffff" id="svg_156" opacity="0.8" stroke="#cccccc"/>
+    </g>
+    <g id="patch_9">
+     <path d="m62.95,90.43l16.65,0l0,-5.83l-16.65,0l0,5.83z" fill="#d55e00" id="svg_157" opacity="0.5"/>
+    </g>
+    <g id="line2d_47">
+     <path d="m62.95,87.52l8.32,0l8.33,0" fill="none" id="svg_158" stroke="#d55e00" stroke-linecap="square" stroke-width="2"/>
+    </g>
+    <g id="text_9">
+     <!-- \textsc{swimba} -->
+     <g id="svg_159" transform="translate(86.263938 90.430443) scale(0.08328 -0.08328)">
+      <defs>
+       <path d="m2457,3238c0,102 0,154 -64,154c-38,0 -45,-7 -141,-148c-32,-32 -96,-127 -121,-165c-243,236 -538,313 -800,313c-583,0 -1005,-435 -1005,-932c0,-357 205,-567 282,-644c192,-191 320,-216 908,-350c346,-83 410,-96 557,-230c32,-25 205,-197 205,-478c0,-318 -250,-662 -691,-662c-167,0 -512,25 -787,248c-288,223 -308,536 -314,708c-6,51 -58,57 -77,57c-83,0 -83,-45 -83,-159l0,-861c0,-102 0,-153 64,-153c38,0 45,6 141,147c32,32 96,127 121,165c186,-165 519,-312 935,-312c621,0 1017,491 1017,995c0,401 -249,656 -249,662c-237,243 -339,262 -883,389c-135,32 -359,83 -397,96c-320,127 -423,376 -423,567c0,293 256,606 685,606c813,0 928,-746 954,-950c13,-45 13,-83 83,-83c83,0 83,32 83,153l0,867z" id="CMCSC10-75" transform="scale(0.015625)"/>
+       <path d="m3001,2787c-32,82 -32,95 -32,133c0,183 224,183 346,183l0,161c-192,-7 -512,-20 -672,-20c-122,0 -403,7 -576,20l0,-161c243,0 313,-19 377,-120c52,-70 141,-348 141,-361c0,-6 0,-19 -25,-82l-698,-1944l-787,2203c-7,26 -32,83 -32,121c0,183 243,183 352,183l0,161c-192,-7 -512,-20 -672,-20c-122,0 -403,7 -576,20l0,-161c275,0 352,-25 422,-215l1018,-2831c25,-70 45,-121 128,-121c83,0 102,57 128,121l832,2324l826,-2305c32,-89 51,-140 134,-140c83,0 96,38 128,128l928,2583c122,342 288,444 512,456l0,161c-134,-13 -301,-20 -435,-20c-147,0 -442,13 -557,20l0,-161c282,-12 339,-202 339,-310c0,-70 -25,-139 -32,-158l-729,-2039l-788,2191z" id="CMCSC10-79" transform="scale(0.015625)"/>
+       <path d="m1196,2799c0,273 32,304 487,304l0,161c-218,-7 -551,-20 -717,-20c-166,0 -499,13 -717,20l0,-161c455,0 487,-31 487,-304l0,-2335c0,-273 -32,-304 -487,-304l0,-160c218,6 551,19 717,19c166,0 499,-13 717,-19l0,160c-455,0 -487,31 -487,304l0,2335z" id="CMCSC10-6b" transform="scale(0.015625)"/>
+       <path d="m3603,3078l6,-6l0,-2614c0,-260 -32,-298 -461,-298l0,-160c129,6 442,19 666,19c224,0 455,-13 666,-19l0,160c-429,0 -461,38 -461,298l0,2347c0,260 32,298 461,298l0,161l-775,0c-147,0 -166,0 -217,-122l-1095,-2665l-1101,2671c-44,116 -83,116 -217,116l-775,0l0,-161c429,0 461,-38 461,-298l0,-2163c0,-146 0,-482 -461,-482l0,-160c135,6 423,19 551,19c96,0 390,-7 550,-19l0,160c-461,0 -461,336 -461,482l0,2385l7,7l1197,-2919c25,-58 57,-115 121,-115c64,0 96,57 122,115l1216,2963z" id="CMCSC10-6f" transform="scale(0.015625)"/>
+       <path d="m2438,1689c435,90 800,381 800,756c0,407 -448,819 -1146,819l-1798,0l0,-161c429,0 461,-38 461,-303l0,-2348c0,-255 -32,-292 -461,-292l0,-160l1933,0c710,0 1158,428 1158,864c0,405 -409,748 -947,819l0,6zm-1261,1137c0,258 32,277 256,277l615,0c582,0 678,-503 678,-658c0,-233 -166,-705 -832,-705l-717,0l0,1086zm960,-1226c544,0 717,-474 717,-736c0,-281 -211,-704 -794,-704l-627,0c-224,0 -256,18 -256,268l0,1172l960,0z" id="CMCSC10-64" transform="scale(0.015625)"/>
+       <path d="m2105,3251c-38,102 -70,141 -141,141c-89,0 -102,-39 -134,-122l-1030,-2634c-71,-174 -180,-464 -583,-476l0,-160c141,12 327,19 467,19c109,0 404,-13 532,-19l0,160c-269,12 -288,232 -288,290c0,51 0,64 217,638l1325,0l141,-361c51,-129 134,-348 134,-387c0,-180 -230,-180 -339,-180l0,-160c173,6 550,19 678,19c218,0 468,-13 621,-19l0,160c-358,0 -416,32 -499,257l-1101,2834zm301,-2003l-1197,0l602,1532l595,-1532z" id="CMCSC10-63" transform="scale(0.015625)"/>
+      </defs>
+      <use id="svg_160" transform="scale(0.996264)" xlink:href="#CMCSC10-75"/>
+      <use id="svg_161" transform="translate(45.606578 0) scale(0.996264)" xlink:href="#CMCSC10-79"/>
+      <use id="svg_162" transform="translate(128.84973 0) scale(0.996264)" xlink:href="#CMCSC10-6b"/>
+      <use id="svg_163" transform="translate(158.958942 0) scale(0.996264)" xlink:href="#CMCSC10-6f"/>
+      <use id="svg_164" transform="translate(233.346387 0) scale(0.996264)" xlink:href="#CMCSC10-64"/>
+      <use id="svg_165" transform="translate(291.129593 0) scale(0.996264)" xlink:href="#CMCSC10-63"/>
+     </g>
+    </g>
+    <g id="patch_10">
+     <path d="m62.95,102.04l16.65,0l0,-5.83l-16.65,0l0,5.83z" fill="#0072b2" id="svg_166" opacity="0.5"/>
+    </g>
+    <g id="line2d_48">
+     <path d="m62.95,99.12l8.32,0l8.33,0" fill="none" id="svg_167" stroke="#0072b2" stroke-dasharray="7.4,3.2" stroke-dashoffset="0" stroke-width="2"/>
+    </g>
+    <g id="text_10">
+     <!-- \textsc{simba} -->
+     <g id="svg_168" transform="translate(86.263938 102.037317) scale(0.08328 -0.08328)">
+      <use id="svg_169" transform="scale(0.996264)" xlink:href="#CMCSC10-75"/>
+      <use id="svg_170" transform="translate(45.606578 0) scale(0.996264)" xlink:href="#CMCSC10-6b"/>
+      <use id="svg_171" transform="translate(75.715791 0) scale(0.996264)" xlink:href="#CMCSC10-6f"/>
+      <use id="svg_172" transform="translate(150.103235 0) scale(0.996264)" xlink:href="#CMCSC10-64"/>
+      <use id="svg_173" transform="translate(207.886441 0) scale(0.996264)" xlink:href="#CMCSC10-63"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
