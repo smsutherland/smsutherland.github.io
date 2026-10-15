@@ -1,7 +1,6 @@
 +++
-title = "SWIFTcon2026"
+title = "SWIFTcon 2026"
 date = 2026-10-20
-draft = true
 [extra]
 time = 15
 location = "Universiteit Leiden"
@@ -161,41 +160,6 @@ Each step has its own big multipanel plot. I manually picked the next set of par
 
 {% </slide> %}
 
-{% <slide> %}
-## FoF Galaxies
-<br>
-{% <columns ncol={2}> %}
-<div class="fragment" data-fragment-index="1">
-
-### SIMBA black holes
-- seeded in galaxies rather than halos
-- seeded based on galaxy stellar mass
-- require knowledge of their whole host galaxy
-  - *not* just particles within their kernel
-</div>
-
-<div class="fragment" data-fragment-index="2">
-
-To that end, the FoF algorithm in SWIFT has been adapted to
-- Identify individual galaxies
-- store galaxy information within the constituent particles
-
-{#This has lead to work trying to model galaxies fully empirically based solely on halo properties.#}
-</div>
-{% </columns> %}
-<p class="fragment" data-fragment-index="2">This is less accurate than bringing in VELOCIraptor for proper sub-structure finding,<br>but but runs with the speed of the FoF.</p>
-{{ <note n="I'm probably missing some detail about the FoF galaxies because, again, development on this was led by Romeel and Doug. I had no part in it until it was mostly a finished product."/> }}
-{{ <note n="This leads into some other interesting work I'm doing"/> }}
-{% </slide> %}
-
-{% <slide> %}
-## Interesting Aside: ECHOES ⚠️Work in progress⚠️
-Fully empirical galaxy modeling!<br>
-Custom FoF modifications to store halo quantities in black holes!<br>
-Identify the central black hole with very little extra computation!
-{{ <video src="BH_9853_tri-axis.mp4" attrs=`data-autoplay loop style="width: 75%;"`/> }}
-{% </slide> %}
-
 {% <slide animate={true} time={2}> %}
 ## Why did we make SWIMBA?
 {% </slide> %}
@@ -268,8 +232,8 @@ Our new SWIMBA suite contains 2164 individual simulations, for a total simulated
 We will soon be expanding SWIMBA from $\\left(25\\,\\mathrm{Mpc/h}\\right)^3$ to $\\left(50\\,\\mathrm{Mpc/h}\\right)^3$ simulations.
 
 Over the course of this project I have developed<br>
-[camels-post](https://github.com/smsutherland/camels-post): a post-processing pipeline combining 7 different tools to generate data products from simulation our snapshots<br>
-[nbody-setup](https://github.com/smsutherland/nbody-setup): a tool to quickly and (relatively) easily prepare suites of N-body simulations.
+[camels-post](https://www.github.com/smsutherland/camels-post): a post-processing pipeline combining 7 different tools to generate data products from simulation our snapshots<br>
+[nbody-setup](https://www.github.com/smsutherland/nbody-setup): a tool to quickly and (relatively) easily prepare suites of N-body simulations.
 
 {{ <note n="Come and find me if you want to use the data :)"/> }}
 {{ <note n="from galaxy catalogs to cosmic web filaments to... images like this"/> }}
@@ -329,6 +293,88 @@ Unfortunately, quantities more dependent on the baryonic physics (such as temper
 {% </columns> %}
 {% </slide> %}
 
+{% <slide time={10}> %}
+## Now for the more technical side of things!
+{{ <note n="Can you tell where the swiftcon part of the talk began?"/> }}
+{% </slide> %}
+
+{% <slide> %}
+## FoF Galaxies
+<br>
+{% <columns ncol={2}> %}
+<div class="fragment" data-fragment-index="1">
+
+### SIMBA black holes
+- seeded in galaxies rather than halos
+- seeded based on galaxy stellar mass
+- require knowledge of their whole host galaxy
+  - *not* just particles within their kernel
+</div>
+
+<div class="fragment" data-fragment-index="2">
+
+To that end, the FoF algorithm in SWIFT has been adapted to
+- Identify individual galaxies
+- store galaxy information within the constituent particles
+
+{#This has lead to work trying to model galaxies fully empirically based solely on halo properties.#}
+</div>
+{% </columns> %}
+<p class="fragment" data-fragment-index="2">This is less accurate than bringing in VELOCIraptor for proper sub-structure finding,<br>but but runs with the speed of the FoF.</p>
+{{ <note n="I'm probably missing some detail about the FoF galaxies because, again, development on this was led by Romeel and Doug. I had no part in it until it was mostly a finished product."/> }}
+{{ <note n="This leads into some other interesting work I'm doing"/> }}
+{% </slide> %}
+
+{% <slide animate={true}> %}
+## Interesting Aside: [ECHOES](https://www.github.com/smsutherland/ECHOES) ⚠️Work in progress⚠️
+Fully empirical galaxy modeling! Based solely on halo properties.
+
+Custom FoF modifications to store halo quantities in black holes!
+
+Identify the central black hole with very little extra computation!
+{{ <video src="BH_9853_tri-axis.mp4" attrs=`data-autoplay loop style="width: 75%;"`/> }}
+{% </slide> %}
+
+{% <slide animate={true}> %}
+## Interesting Aside: [ECHOES](https://www.github.com/smsutherland/ECHOES) ⚠️Work in progress⚠️
+Custom FoF modifications to store halo quantities in black holes!
+
+{% <columns ncol={2} widths="1fr 0.7fr"> %}
+
+<div>
+This is currently how I'm handling it, but there's no reason this functionality has to be ECHOES-specific.
+
+Is this functionality something other people would be able to make use of?
+I'm not opposed to upstreaming if there's demand.
+Alternately, am I just re-inventing the wheel here?
+
+Pretty pretty please come talk to me if you have thoughts/opinions!
+Currently I only pass in the 3 properties ($r^2$, M<sub>halo</sub>, and is_central) I need, but if there's a more general way of passing more fof properties, I'd love to hear it!
+
+</div>
+<div>
+
+In `black_holes.h`
+```c
+__attribute__((always_inline)) INLINE static float
+black_holes_central_priority(
+    const struct black_holes_props *const props,
+    const struct bpart *const bp
+);
+
+__attribute__((always_inline)) INLINE static void
+black_holes_update_fof_properties(
+    const struct black_holes_props *const props,
+    float r2,
+    float group_mass,
+    int is_central,
+    struct bpart *const bp
+);
+```
+</div>
+{% </columns> %}
+{% </slide> %}
+
 {% <slide width="75%" background_mov="background_movie.mp4"> %}
 {%- set img = get_image_metadata(path=page.colocated_path ~ "/figs/qr.png") -%}
 {%- set qr_scale = 2 -%}
@@ -341,10 +387,10 @@ Unfortunately, quantities more dependent on the baryonic physics (such as temper
 - Even so, based on our initial robustness tests, the maps are distinct enough that we lose machine learning robustness.
 - SWIMBA data is available to be used! Please reach out if you could make use of such a dataset.
   - [sagan.sutherland@uconn.edu](mailto:sagan.sutherland@uconn.edu)
-- We provide open-source tools for generating our data products [here](https://github.com/smsutherland/camels-post) and [here](https://github.com/smsutherland/nbody-setup).
+- We provide open-source tools for generating our data products [here](https://www.github.com/smsutherland/camels-post) and [here](https://www.github.com/smsutherland/nbody-setup).
 - Slides available at [{{ get_url(path=page.path) }}]({{ get_url(path=page.path) }}) ![QR code for talk]({{qr.url}})
 <br><br>
-### Paper coming soon to an arxiv near you!
+### SWIMBA Paper coming soon to an arxiv near you!
 </div>
 
 {% </slide> %}
