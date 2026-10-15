@@ -59,8 +59,10 @@
 {% if not note %}
 {% if n %}
 {% set note = n %}
-{% else %}
+{% elif body %}
 {% set note = body %}
+{% else %}
+{% set note = "" %}
 {% endif %}
 {% endif %}
 <aside class="notes">
