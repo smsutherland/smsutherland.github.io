@@ -1,7 +1,6 @@
 +++
 template = "talks.html"
 sort_by = "date"
-paginate_reversed = true
 page_template = "talk.html"
 +++
 

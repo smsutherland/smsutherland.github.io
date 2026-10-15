@@ -3,7 +3,7 @@
 {% block content %}
     {{ section.content | safe }}
 
-    {% for page in section.pages | reverse %}
+    {% for page in section.pages %}
         <h2>
             <a href="{{ page.permalink }}">{{ page.title }}</a>
         </h2>
