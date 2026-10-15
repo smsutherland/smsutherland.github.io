@@ -4,3 +4,8 @@ title = "Sagan Sutherland"
 theme = "smsutherland"
 compile_sass = false
 build_search_index = false
+
+[markdown.highlighting]
+error_on_missing_language = true
+style = "inline"
+theme = "catppuccin-frappe"
