@@ -385,7 +385,11 @@ black_holes_update_fof_properties(
 - This is not something we've explored with much depth yet, but achieving this would be very relevant for CAMELS purposes.
 - ⚠️Work in not even in progress yet⚠️
 
+<div class="hcenter">
+
 ![mix-n-match diagram](figs/mixnmatch.png)
+<p style="margin-top: 0;"><small>(Anglés-Alcázar)</small></p>
+</div>
 {% </columns> %}
 {% </slide> %}
 
