@@ -375,6 +375,20 @@ black_holes_update_fof_properties(
 {% </columns> %}
 {% </slide> %}
 
+{% <slide> %}
+## Interesting Aside 2: Mix-n-Match Simulations
+{% <columns ncol={2}> %}
+
+- Utilize the modular nature of SWIFT to create hybrid models.
+  - For example, combining EAGLE's stellar feedback with SWIMBA's AGN feedback and vice versa.
+- SWIMBA is already a sort of hybrid simulation between SIMBA and EAGLE.
+- This is not something we've explored with much depth yet, but achieving this would be very relevant for CAMELS purposes.
+- ⚠️Work in not even in progress yet⚠️
+
+![mix-n-match diagram](figs/mixnmatch.png)
+{% </columns> %}
+{% </slide> %}
+
 {% <slide width="75%" background_mov="background_movie.mp4"> %}
 {%- set img = get_image_metadata(path=page.colocated_path ~ "/figs/qr.png") -%}
 {%- set qr_scale = 2 -%}
