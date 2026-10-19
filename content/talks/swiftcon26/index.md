@@ -420,3 +420,8 @@ Adaptive softenings in gizmo change the density profile of galaxies.
 {{ <figure src="SwimbaSIMBA_Mtot_2345.svg" height="90vh"/> }}
 {{ <figure src="SwimbaSIMBA_T_2345.svg" height="90vh"/> }}
 {% </slide> %}
+
+{% <slide bonus={true}> %}
+## Differences in star formation results...
+{{ <figure src="SFR_compare.svg" height="90vh"/> }}
+{% </slide> %}
