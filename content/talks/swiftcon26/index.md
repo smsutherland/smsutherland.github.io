@@ -441,5 +441,6 @@ Adaptive softenings in gizmo change the density profile of galaxies.
 
 {% <slide bonus={true}> %}
 ## Differences in star formation results...
-{{ <figure src="SFR_compare.svg" height="90vh"/> }}
+{{ <figure src="SFR_compare.svg" height="80vh"/> }}
+R&P15 = Renzini & Peng 2015, S+16 = Saintonge+2016
 {% </slide> %}
