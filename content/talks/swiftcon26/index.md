@@ -20,6 +20,8 @@ mermaid = {theme = "dark", themeVariables = { darkMode = true }}
 ## SWIMBA: A reimplementation of SIMBA feedback in SWIFT
 ### Sagan Sutherland
 with Daniel Anglés-Alcázar and the CAMELS collaboration
+
+October ~20th~ 23rd, 2026
 </div>
 
 {% <note> %}
