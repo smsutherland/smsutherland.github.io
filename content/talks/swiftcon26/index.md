@@ -1,6 +1,6 @@
 +++
 title = "SWIFTcon 2026"
-date = 2026-10-20
+date = 2026-10-23
 [extra]
 time = 15
 location = "Universiteit Leiden"
