@@ -150,8 +150,8 @@ linkStyle 6 font-size:17pt;
 </div>
 
 <div class="fragment r-stack">
-<img data-src="http://127.0.0.1:1111/talks/swiftcon26/figs/CV.svg" width=530 height=600 style="transform: translate(9em, -11.3em) scale(0.25);">
-<img data-src="http://127.0.0.1:1111/talks/swiftcon26/figs/CV.svg" width=530 height=600 style="transform: translate(9em, -15.5em) scale(0.25);">
+<img data-src={{ get_url(path=page.colocated_path ~ "figs/CV.svg") }} width=530 height=600 style="transform: translate(9em, -11.3em) scale(0.25);">
+<img data-src={{ get_url(path=page.colocated_path ~ "figs/CV.svg") }} width=530 height=600 style="transform: translate(9em, -15.5em) scale(0.25);">
 </div>
 
 {% <note> %}
